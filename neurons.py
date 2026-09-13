@@ -14,6 +14,6 @@ def single_neuron(inputs):
     weights = np.random.rand(1, input_length)
     bias = np.random.rand(1, 1)
 
-    out = np.dot(weights, input) + bias
+    out = np.dot(weights, inputs) + bias
 
     return out
