@@ -31,3 +31,17 @@ def threeNeurons_OneLayer(inputs):
     out = np.dot(weights, inputs) + bias
 
     return out
+
+
+def NNeurons_OneLayer(inputs, n_neurons):
+    """
+    Implements an arbitrary number of neurons in a single layer
+    """
+    input_length = len(inputs)
+
+    weights = np.random.rand(n_neurons, input_length)
+    bias = np.random.rand(n_neurons, 1)
+
+    out = np.dot(weights, inputs) + bias
+
+    return out
