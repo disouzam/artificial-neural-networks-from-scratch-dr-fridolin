@@ -24,6 +24,7 @@ version = "0.1.0"
 source = { virtual = "." }
 dependencies = [
     { name = "marimo" },
+    { name = "nnfs" },
     { name = "numpy" },
     { name = "prek" },
     { name = "ruff" },
@@ -32,6 +33,7 @@ dependencies = [
 [package.metadata]
 requires-dist = [
     { name = "marimo", specifier = ">=0.23.16" },
+    { name = "nnfs", specifier = ">=0.5.1" },
     { name = "numpy", specifier = ">=2.5.2" },
     { name = "prek", specifier = ">=0.4.13" },
     { name = "ruff", specifier = ">=0.16.3" },
@@ -303,6 +305,18 @@ source = { registry = "https://pypi.org/simple" }
 sdist = { url = "https://files.pythonhosted.org/packages/2b/1d/58946e5aab18393e793bd4add6985b95d0e01c3a2d832f38f54468b10dcd/narwhals-2.24.0.tar.gz", hash = "sha256:b5c0f684ccd9d7475b564111e319a4964abcf2baf79d3cf6b1003d06ac9b828d", size = 661143, upload-time = "2026-07-13T10:49:19.086Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/7e/85/a5bfaebfd305ac18b57b0854d74e37e586809061a91fda62f0bd50c8518e/narwhals-2.24.0-py3-none-any.whl", hash = "sha256:42fdedf44e5b2ca7505630d45b4ac3058f38d8485cba9fe1652ca23152df7489", size = 461030, upload-time = "2026-07-13T10:49:17.571Z" },
+]
+
+[[package]]
+name = "nnfs"
+version = "0.5.1"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "numpy" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/64/9f/4cd73be57e0551dbc98adfd710eaba902372e04af8a15f1a8b08cffdfc2e/nnfs-0.5.1.tar.gz", hash = "sha256:7e1ba80bdfb89d9909758ba7546f1f73c5f6b58c1d5899649ac488c2a4833213", size = 5049, upload-time = "2020-08-21T02:57:17.856Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/06/8c/3003a41d5229e65da792331b060dcad8100a0a5b9760f8c2074cde864148/nnfs-0.5.1-py3-none-any.whl", hash = "sha256:fd04796da8e8f40a4dff9ad995a99944b8f0d68966d59e3e5d133659c7264c1f", size = 9145, upload-time = "2020-08-21T02:57:14.318Z" },
 ]
 
 [[package]]
