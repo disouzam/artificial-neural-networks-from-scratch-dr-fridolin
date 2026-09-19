@@ -17,8 +17,9 @@ def _():
 
     from activation_functions import ActivationReLU
     from layer import LayerDense
+    from softmax import ActivationSoftmax
 
-    return ActivationReLU, LayerDense, np
+    return ActivationReLU, ActivationSoftmax, LayerDense, np
 
 
 @app.cell
@@ -93,7 +94,14 @@ def _(ActivationReLU, LayerDense, np):
     dense1.forward(input_for_activation_function)
     activation1.forward(dense1.output)
     dense2.forward(activation1.output)
-    return activation1, dense1, dense2
+    return (
+        activation1,
+        dense1,
+        dense2,
+        input_for_activation_function,
+        neurons_in_first_layer,
+        neurons_in_second_layer,
+    )
 
 
 @app.cell
@@ -118,6 +126,45 @@ def _(dense2):
 @app.cell
 def _(out):
     out.shape
+    return
+
+
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(r"""
+    # Complete example with Softmax activation function
+    """)
+    return
+
+
+@app.cell
+def _(
+    ActivationReLU,
+    ActivationSoftmax,
+    LayerDense,
+    input_for_activation_function,
+    neurons_in_first_layer,
+    neurons_in_second_layer,
+):
+    S_softmax = input_for_activation_function.shape
+
+    dense3 = LayerDense(S_softmax[1], neurons_in_first_layer)
+    dense4 = LayerDense(neurons_in_first_layer, neurons_in_second_layer)
+    activation2 = ActivationReLU()
+    activation3 = ActivationSoftmax()
+
+    dense3.forward(input_for_activation_function)
+    activation2.forward(dense3.output)
+    dense4.forward(activation2.output)
+    activation3.forward(dense4.output)
+
+    softmax_output = activation3.output
+
+    count = 0
+    for cur_array in softmax_output:
+        count += 1
+        print(f"Array in position {count}: \n\t\t{cur_array}\n")
+        print(f"Sum of probabilities: {sum(cur_array):.4f}\n")
     return
 
 
