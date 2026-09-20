@@ -6,7 +6,7 @@ app = marimo.App(width="full")
 
 @app.cell
 def _():
-    import marimo as mo  # noqa: F401
+    import marimo as mo
 
     return (mo,)
 
