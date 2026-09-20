@@ -11,4 +11,10 @@ class LayerDense:
         self.biases = np.zeros((1, n_neurons))
 
     def forward(self, inputs):
+        self.inputs = inputs
         self.output = np.dot(inputs, self.weigths) + self.biases
+
+    def backward(self, dvalues):
+        self.dweights = np.dot(self.inputs.T, dvalues)
+        self.dinputs = np.dot(dvalues, self.weigths.T)
+        self.dbiases = np.sum(dvalues, axis=0, keepdims=True)
