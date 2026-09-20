@@ -183,12 +183,12 @@ def _(
 ):
     accuracies = []
 
-    for i in range(1000):
-        dense1_complete = LayerDense(S_softmax[1], neurons_in_first_layer)
-        dense2_complete = LayerDense(neurons_in_first_layer, neurons_in_second_layer)
-        activation1_complete = ActivationReLU()
-        loss_function_complete = CalcSoftmaxLossGrad()
+    dense1_complete = LayerDense(S_softmax[1], neurons_in_first_layer)
+    dense2_complete = LayerDense(neurons_in_first_layer, neurons_in_second_layer)
+    activation1_complete = ActivationReLU()
+    loss_function_complete = CalcSoftmaxLossGrad()
 
+    for i in range(1000):
         dense1_complete.forward(x)
         activation1_complete.forward(dense1_complete.output)
         dense2_complete.forward(activation1_complete.output)
