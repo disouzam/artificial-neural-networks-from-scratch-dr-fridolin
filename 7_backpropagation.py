@@ -230,5 +230,14 @@ def _(accuracies):
     return
 
 
+@app.cell
+def _(accuracies, plt):
+    plt.scatter(range(len(accuracies)), accuracies)
+    plt.xlabel("Epoch")
+    plt.ylabel("Accuracy")
+    plt.show()
+    return
+
+
 if __name__ == "__main__":
     app.run()
